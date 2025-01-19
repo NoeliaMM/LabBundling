@@ -1,0 +1,60 @@
+$background-color: grey;
+$color-primary1: white;
+$color-primary2:#333;
+$color-primary3: black;
+$font-size-large: 3rem; 
+$font-size-small: 1.5rem;
+$pink-color: #ff4081;
+
+body {
+    margin: 0; 
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    height: 100vh; 
+    background-color: #f4f4f4;
+  }
+  
+
+
+  .navbar {
+    width: 100%;
+    background-color: $color-primary2; 
+    color: $color-primary1;   
+    padding: 10px 20px;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+  }
+
+  #logo-container img {  
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-container {
+    max-width: 400px;
+    border: 1px solid $color-primary2;
+    border-radius: 10px;
+    background-color: $color-primary1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#card-logo{
+    object-fit: cover;   
+    padding: 10px;
+}
+
+.card-title { 
+    font-weight: bold;
+    color:$color-primary2;
+    font-size:$font-size-large;    
+    text-align: center;
+    padding: 20px;  
+}

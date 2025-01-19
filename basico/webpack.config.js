@@ -9,7 +9,7 @@ const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 export default {
  context: path.resolve(__dirname, "src"),
  entry:{
-    app:"./index.js",  
+    app:"./index.ts",  
     main :[ "../node_modules/bootstrap/dist/css/bootstrap.css" , "./styles.scss"]
  },
  output:{
@@ -20,7 +20,7 @@ export default {
   module: {
    rules:[
         {
-        test: /\.js$/,
+        test: /\.ts$/,
         exclude:/node_modules/,
         loader: 'babel-loader',
         },       
@@ -43,9 +43,13 @@ export default {
         },
     ]
   },
+  devtool: "eval-source-map", //para que se vea el codigo original en el navegador
   devServer:{
     port: 8080,
-    hot:true
+    hot:true,
+    devMiddleware:{
+      stats:"errors-only"
+    }
   },
   plugins:[
     new HtmlWebpackPlugin({
