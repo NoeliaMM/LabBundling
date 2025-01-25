@@ -1,5 +1,7 @@
 import React from 'react';
-import Logo2 from './images/logo_2.png'
+import Logo2 from './images/logo_2.png';
+
+
 
 export const CardComponent = () => {
     return (

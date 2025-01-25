@@ -1,5 +1,7 @@
 import React from 'react';
-import Logo1 from './images/logo_1.png'
+import Logo1 from './images/logo_1.png';
+
+
 
 export const NavbarComponent = () => {
     React.useEffect(() => {

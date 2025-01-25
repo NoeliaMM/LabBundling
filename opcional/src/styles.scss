@@ -53,8 +53,9 @@ body {
 
 .card-title { 
     font-weight: bold;
-    color:$color-primary2;
+    color:$pink-color;
     font-size:$font-size-large;    
     text-align: center;
     padding: 20px;  
+    background-color: $color-primary2;
 }

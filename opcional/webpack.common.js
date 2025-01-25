@@ -1,6 +1,5 @@
 
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import path from "path";
 import url from "url";
 
@@ -12,8 +11,8 @@ export default {
   extensions:[".js",".jsx"]
  },
  entry:{
-    app:"./index.jsx",     
- },
+  app:"./index.jsx",    
+},
  output:{
     filename: "[name].[chunkhash].js",
     // filename: "[name].js",
@@ -25,15 +24,8 @@ export default {
         test: /\.jsx?$/,
         exclude:/node_modules/,
         loader: 'babel-loader',
-        },
-        {
-          test: /\.(sa|sc|c)ss$/,
-          use: [
-            MiniCssExtractPlugin.loader,
-            'css-loader',              
-            'sass-loader',             
-          ],
-        },
+        },   
+ 
         {
           test: /\.(png|jpg)$/,
           type: "asset/resource"
@@ -44,20 +36,12 @@ export default {
         },
     ]
   },
-  devtool: "eval-source-map",
-  devServer:{
-    port: 8080,
-    hot:true
-  },
   plugins:[
     new HtmlWebpackPlugin({
       template: "./index.html",
       filename: "index.html",
       scriptLoading:"blocking",
       // hash:true
-    }),
-    new MiniCssExtractPlugin({
-      filename: "[name].[chunkhash].css"
-    }),
+    }), 
   ]
 }
