@@ -1,0 +1,34 @@
+{
+  "name": "vite-seed",
+  "version": "1.0.0",
+  "description": "Proyecto semilla con vite práctica Bundling",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "vite --host",
+    "type-check": "tsc --noEmit",
+    "prebuild": "npm run type-check",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NoeliaMM/LabBundling"
+  },
+  "author": "Noelia M",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "sass-embedded": "^1.83.4",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.11",
+    "vite-plugin-checker": "^0.8.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

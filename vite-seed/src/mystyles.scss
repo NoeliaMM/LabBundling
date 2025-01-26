@@ -1,0 +1,14 @@
+$blue-color:rgb(14, 39, 229);
+$basic-color:white;
+
+.custom-background{
+background-color: $blue-color;
+}
+
+.navbar-text{
+    color: $basic-color;
+
+    &:hover{
+        color:#d9d900;
+    }
+}
