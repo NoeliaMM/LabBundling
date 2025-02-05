@@ -1,19 +1,32 @@
 import { merge } from 'webpack-merge';
 import common from './webpack.common.js';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-// import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 
 export default merge(common, {  
   mode: "production",
   output: {
-    publicPath: '/', 
+    filename: "js/[name].[chunkhash].js",
+    assetModuleFilename: "images/[hash][ext][query]",
   },
   optimization: {
-    minimize: true,
-    minimizer: [
-      new CssMinimizerPlugin(), 
-    ],
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          chunks: 'all',
+          name: 'vendor',
+          test: /[\\/]node_modules[\\/]/,
+          enforce: true,
+        },
+        react: {
+          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+          name: 'react-vendor',
+          chunks: 'all',
+          maxSize: 250000,
+        },
+      },
+    },
   },
   module: {
     rules: [     
@@ -21,17 +34,11 @@ export default merge(common, {
         test: /\.s?css$/,
         // exclude: /node_modules/,
         use: [
-            MiniCssExtractPlugin.loader, 
-          {
-            loader: "css-loader",
-            options: {
-              modules: true
-            },
-          },
+          MiniCssExtractPlugin.loader, 
+          "css-loader",     
           "sass-loader",
         ], 
-      },  
-   
+      },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
         type: 'asset/resource', 
@@ -40,9 +47,8 @@ export default merge(common, {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css", 
+      filename: "css/[name].[contenthash].css", 
       chunkFilename: "[id].css",
-    }),
-    // new BundleAnalyzerPlugin(), 
+    }),    
   ],
 });

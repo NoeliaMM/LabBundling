@@ -11,7 +11,7 @@ export default {
   extensions:[".js",".jsx"]
  },
  entry:{
-  app:"./index.jsx",    
+  app:"./index.jsx"  
 },
  output:{
     filename: "[name].[chunkhash].js",
